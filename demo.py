@@ -16,13 +16,13 @@ parser = argparse.ArgumentParser("HSI")
 parser.add_argument('--fix_random', action='store_true', default=True, help='fix randomness')
 parser.add_argument('--gpu_id', default='0', help='GPU id')
 parser.add_argument('--seed', type=int, default=0, help='number of seed')
-parser.add_argument('--dataset', choices=['Indian', 'Pavia', 'Salinas'], default='Indian', help='dataset to use')
+parser.add_argument('--dataset', choices=['Indian', 'Pavia', 'Salinas'], default='Salinas', help='dataset to use')
 parser.add_argument('--flag_test', choices=['test', 'train'], default='train', help='testing mark')
 parser.add_argument('--model_name', choices=['conv2d_unmix', 'vit_unmix'], default='vit_unmix', help='DSNet')
 parser.add_argument('--batch_size', type=int, default=64, help='number of batch size')
 parser.add_argument('--test_freq', type=int, default=5, help='number of evaluation')
 parser.add_argument('--patches', type=int, default=7, help='number of patches')
-1``
+parser.add_argument('--epoches', type=int, default=500, help='epoch number')
 parser.add_argument('--learning_rate', type=float, default=1e-3, help='learning rate')
 parser.add_argument('--gamma', type=float, default=0.9, help='gamma')
 parser.add_argument('--weight_decay', type=float, default=0, help='weight decay')
@@ -179,18 +179,7 @@ def main():
                     model_save_path = os.path.join('./results/', f"{args.dataset}_{args.model_name}_epoch{epoch}.pkl")
                     torch.save(model.state_dict(), model_save_path)
                     min_val_obj = OA2
-                    best_epoch = epochfrom scipy.io import loadmat
-import numpy as np
-
-mat = loadmat('./data/indian_pines_TAP.mat')   # or salinasTAP15PC.mat, Pavia_30.mat
-train_per_class = [np.sum(mat['TR'] == i+1) for i in range(np.max(mat['TR']))]
-test_per_class  = [np.sum(mat['TE'] == i+1) for i in range(np.max(mat['TE']))]
-
-print("Training  :", sum(train_per_class), "pixels")
-print("Testing   :", sum(test_per_class),  "pixels")
-for idx, (tr, te) in enumerate(zip(train_per_class, test_per_class), 1):
-    print(f"Class {idx:2d}: train={tr:4d}, test={te:5d}")
-
+                    best_epoch = epoch
                     best_OA = OA2
                     best_AA = AA_mean2
                     best_Kappa = Kappa2
@@ -208,5 +197,3 @@ for idx, (tr, te) in enumerate(zip(train_per_class, test_per_class), 1):
 
 if __name__ == '__main__':
     main()
-
-
