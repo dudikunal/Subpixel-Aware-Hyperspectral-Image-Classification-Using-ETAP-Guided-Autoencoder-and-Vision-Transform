@@ -1,6 +1,6 @@
-# ETAP-Guided Dual-Stream Autoencoder and Vision Transformer Fusion for Subpixel-Aware Hyperspectral Image Classification
+# Knowledge-Embedded Representation Learning via Attribute Profiles and Transformer Fusion for Hyperspectral Image Classification
 
-This repository provides the official PyTorch implementation of **ETAP-Guided Dual-Stream Autoencoder and Vision Transformer Fusion**, a novel hybrid architecture for robust **Subpixel-Aware Hyperspectral Image (HSI) Classification**. This framework integrates spatial-spectral enhancement using **Extended Threshold-Free Attribute Profiles (eTAP)** with a dual-stream autoencoder and **Vision Transformer (ViT)** to capture both local unmixing cues and global contextual dependencies.
+This repository provides the official PyTorch implementation of **Knowledge-Embedded Representation Learning via Attribute Profiles and Transformer Fusion**, a novel hybrid architecture for robust **Subpixel-Aware Hyperspectral Image (HSI) Classification**. This framework integrates spatial-spectral enhancement using **Extended Threshold-Free Attribute Profiles (eTAP)** with a dual-stream autoencoder and **Vision Transformer (ViT)** to capture both local unmixing cues and global contextual dependencies.
 
 ---
 
@@ -16,8 +16,10 @@ Hyperspectral images (HSIs) often suffer from low spatial resolution, leading to
 
 - **Fusion Strategy**: The dual-stream features and ViT embeddings are synergistically fused for final classification, combining subpixel precision with contextual awareness.
 
-# Repository Structure
+---
 
+## 📂 Repository Structure
+```
 .
 ├── data/
 │   ├── indian_pines_TAP.mat
@@ -31,38 +33,30 @@ Hyperspectral images (HSIs) often suffer from low spatial resolution, leading to
 ├── model.py
 ├── demo.py
 └── README.md
-dataset.py
-Handles data loading, preparation, normalization, mirror-padding, and dataset splitting for training and testing.
+```
 
-utils.py
-Contains utility functions for performance metric calculations, logging, and helper classes.
 
-model.py
-Defines the VTSNet architecture. It includes:
+- **dataset.py** → Handles data loading, preparation, normalization, mirror-padding, and dataset splitting for training/testing.  
+- **utils.py** → Contains utility functions for performance metric calculations, logging, and helper classes.  
+- **model.py** → Defines the architecture:  
+  - Sub-pixel unmixing module (autoencoder–style network)  
+  - Vision Transformer classifier  
+  - Fusion of unmixing outputs and transformer embeddings  
+- **demo.py** → Script for training and testing the model. Includes main training loop, validation, saving, and result reporting.  
 
-The sub-pixel unmixing module (auto-encoder–style network)
+---
 
-The Vision Transformer classifier
+## ⚙️ Dependencies
 
-Fusion of unmixing outputs and transformer embeddings
+Ensure the following are installed:
 
-demo.py
-Script for training and testing VTSNet. It contains the main training loop, validation, saving, and reporting results.
+- Python 3.7+  
+- PyTorch (>= 1.7)  
+- NumPy  
+- SciPy  
+- scikit-learn  
+- Transformers (for the ViT module)  
+- Matplotlib (optional, for visualizations)  
 
-# Dependencies
-Make sure you have the following installed:
+---
 
-Python 3.7+
-
-PyTorch (>= 1.7)
-
-NumPy
-
-SciPy
-
-scikit-learn
-
-Transformers (for the ViT module)
-
-Matplotlib (optional, for any visualizations)# ETAP-DSAE-ViT-Subpixel-Aware-HSI-Classification-via-Dual-Stream-Autoencoder-Vision-Transformer
-# ETAP-DSAE-ViT-Subpixel-Aware-HSI-Classification-via-Dual-Stream-Autoencoder-Vision-Transformer
