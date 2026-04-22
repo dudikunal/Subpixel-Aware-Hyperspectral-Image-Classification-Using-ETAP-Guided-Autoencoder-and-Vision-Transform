@@ -1,6 +1,6 @@
-# Subpixel-Aware-Hyperspectral-Image-Classification-Using-ETAP-Guided-Autoencoder-and-Vision-Transform
+# Subpixel-Aware-Hyperspectral-Image-Classification-Using-ETAP-Guided-Autoencoder-and-Vision-Transformer Fusion
 
-This repository provides the official PyTorch implementation of **Knowledge-Embedded Representation Learning via Attribute Profiles and Transformer Fusion**, a novel hybrid architecture for robust **Subpixel-Aware Hyperspectral Image (HSI) Classification**. This framework integrates spatial-spectral enhancement using **Extended Threshold-Free Attribute Profiles (eTAP)** with a dual-stream autoencoder and **Vision Transformer (ViT)** to capture both local unmixing cues and global contextual dependencies.
+This repository provides the official PyTorch implementation of **Subpixel-Aware-Hyperspectral-Image-Classification-Using-ETAP-Guided-Autoencoder-and-Vision-Transformer Fusion**, a novel hybrid architecture for robust **Subpixel-Aware Hyperspectral Image (HSI) Classification**. This framework integrates spatial-spectral enhancement using **Extended Threshold-Free Attribute Profiles (eTAP)** with a dual-stream autoencoder and **Vision Transformer (ViT)** to capture both local unmixing cues and global contextual dependencies.
 
 ---
 
